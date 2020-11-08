@@ -19,14 +19,19 @@ namespace WindowsFormsApp1
 
         private void btn_OYNA_Click(object sender, EventArgs e)
         {
+
+            
             
 
-            if(!string.IsNullOrEmpty(txt_satirSayisi.Text) && !string.IsNullOrEmpty(txt_sutunSayisi.Text))
+            if(!string.IsNullOrEmpty(numericudSatir.Text) && !string.IsNullOrEmpty(numericudSutun.Text))
             {
-                int satirSayisi = Convert.ToInt32(txt_satirSayisi.Text);
-                int sutunSayisi = Convert.ToInt32(txt_sutunSayisi.Text);
+
+                int satirSayisi = Convert.ToInt32(numericudSatir.Text);
+                int sutunSayisi = Convert.ToInt32(numericudSutun.Text);
+
                 Oyun oyun = new Oyun(satirSayisi, sutunSayisi);
                 oyun.Visible = true;
+                  
             }
             else
             {
@@ -36,6 +41,11 @@ namespace WindowsFormsApp1
 
            
             
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

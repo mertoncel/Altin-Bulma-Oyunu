@@ -42,6 +42,8 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 20;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -69,6 +71,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dOyuncusu, 19, 19);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 20;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -91,7 +94,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(666, 643);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(666, 645);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // aOyuncusu
@@ -105,7 +108,7 @@
             // 
             // bOyuncusu
             // 
-            this.bOyuncusu.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.bOyuncusu.BackColor = System.Drawing.SystemColors.Desktop;
             this.bOyuncusu.Location = new System.Drawing.Point(630, 3);
             this.bOyuncusu.Name = "bOyuncusu";
             this.bOyuncusu.Size = new System.Drawing.Size(33, 26);
@@ -114,7 +117,7 @@
             // 
             // cOyuncusu
             // 
-            this.cOyuncusu.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.cOyuncusu.BackColor = System.Drawing.SystemColors.WindowText;
             this.cOyuncusu.Location = new System.Drawing.Point(3, 611);
             this.cOyuncusu.Name = "cOyuncusu";
             this.cOyuncusu.Size = new System.Drawing.Size(27, 29);
@@ -123,7 +126,7 @@
             // 
             // dOyuncusu
             // 
-            this.dOyuncusu.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.dOyuncusu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dOyuncusu.Location = new System.Drawing.Point(630, 611);
             this.dOyuncusu.Name = "dOyuncusu";
             this.dOyuncusu.Size = new System.Drawing.Size(33, 29);
@@ -134,10 +137,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 643);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(666, 645);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.Name = "Oyun";
-            this.Text = "Oyun";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Altın Toplama Oyunu";
             this.Load += new System.EventHandler(this.Oyun_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.aOyuncusu)).EndInit();
@@ -145,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cOyuncusu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dOyuncusu)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
