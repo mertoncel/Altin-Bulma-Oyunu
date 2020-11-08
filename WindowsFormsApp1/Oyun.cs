@@ -25,6 +25,8 @@ namespace WindowsFormsApp1
             satirSayisi = satir;
             sutunSayisi = sutun;
 
+            //sfsdf
+
             InitializeComponent();
 
         }
