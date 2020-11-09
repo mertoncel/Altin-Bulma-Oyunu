@@ -14,55 +14,80 @@ namespace WindowsFormsApp1
 {
     public partial class Oyun : Form
     {
-        int satirSayisi=20;
-        int sutunSayisi=20;
+        int satirSayisi = 20;
+        int sutunSayisi = 20;
+        Random rnd = new Random();
 
-        List<PictureBox> altin = new List<PictureBox>();
+        List<Altin> altinliste = new List<Altin>();
+        Altin altin = new Altin();
+        
+
+
 
         public Oyun()
         {
             InitializeComponent();
+
         }
 
-        public Oyun(int satir,int sutun)
+        public Oyun(int satir, int sutun)
         {
             satirSayisi = satir;
             sutunSayisi = sutun;
-
             InitializeComponent();
+            InitTableLayoutPanel(tableLayoutPanel1, satirSayisi, sutunSayisi);
+            MovePlayers(satirSayisi - 1, sutunSayisi - 1);
+
 
         }
+
+         
 
         private void Oyun_Load(object sender, EventArgs e)
         {
-           
-
-            InitTableLayoutPanel(tableLayoutPanel1, satirSayisi, sutunSayisi);
-            
-            MovePlayers();
-
-            // hücreye  altın ekleme
-            tableLayoutPanel1.Controls.Add(new PictureBox { Name = "pct1", Visible = true, Dock = DockStyle.Fill,  BackColor = System.Drawing.Color.Yellow }, 10, 10);
 
 
-            
+            for (int i = 0; i < (satirSayisi * sutunSayisi) / 5; i++)
+            {
+                int x = rnd.Next(0, satirSayisi);
+                int y = rnd.Next(0, sutunSayisi);
 
 
-           
+                if ((x == 0 && y == 0) || (x == satirSayisi - 1 && y == 0) || (x == 0 && y == sutunSayisi - 1) || (x == satirSayisi - 1 && y == sutunSayisi - 1))
+                {
+                    x = rnd.Next(0, satirSayisi);
+                    y = rnd.Next(0, sutunSayisi);
+
+                }
+
+                altin.altinKonumSatir = x;
+                altin.altinKonumSutun = y;
+
+                altinliste.Add(altin);
+
+                tableLayoutPanel1.Controls.Add(new PictureBox { Name = "pct" + i, Visible = true, Dock = DockStyle.Fill, BackColor = System.Drawing.Color.Yellow }, y, x);
+
+
+            }
+
+
+
+
+
         }
 
-        
+
 
         //dinamik olarak değiştirilebilen tahtada oyuncuların default olan konumlarını değerlere göre değiştirir.
-        private void MovePlayers()
+        private void MovePlayers(int satirsayi, int sutunsayi)
         {
             Control playerbControl = tableLayoutPanel1.GetControlFromPosition(19, 0);
-            tableLayoutPanel1.SetColumn(playerbControl, sutunSayisi);
+            tableLayoutPanel1.SetColumn(playerbControl, sutunsayi);
             Control playercControl = tableLayoutPanel1.GetControlFromPosition(0, 19);
-            tableLayoutPanel1.SetRow(playercControl, satirSayisi);
+            tableLayoutPanel1.SetRow(playercControl, satirsayi);
             Control playerdControl = tableLayoutPanel1.GetControlFromPosition(19, 19);
-            tableLayoutPanel1.SetRow(playerdControl, satirSayisi);
-            tableLayoutPanel1.SetColumn(playerdControl, sutunSayisi);
+            tableLayoutPanel1.SetRow(playerdControl, satirsayi);
+            tableLayoutPanel1.SetColumn(playerdControl, sutunsayi);
 
 
 
@@ -75,17 +100,24 @@ namespace WindowsFormsApp1
         {
             TLP.RowCount = rows;
             TLP.RowStyles.Clear();
+            
+
             for (int i = 1; i <= rows; i++)
             {
-                TLP.RowStyles.Add(new RowStyle(SizeType.Percent,1));
+                TLP.RowStyles.Add(new RowStyle(SizeType.Percent, 1));
             }
             TLP.ColumnCount = cols;
             TLP.ColumnStyles.Clear();
             for (int i = 1; i <= cols; i++)
             {
-                TLP.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,1));
+                TLP.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1));
             }
+
            
+
+
         }
+
+   
     }
 }
