@@ -18,9 +18,10 @@ namespace WindowsFormsApp1
         int sutunSayisi = 20;
         Random rnd = new Random();
 
-        List<Altin> altinliste = new List<Altin>();
-        Altin altin = new Altin();
-        
+        List<Altin> altinListe;
+
+
+
 
 
 
@@ -47,31 +48,9 @@ namespace WindowsFormsApp1
         {
 
 
-            for (int i = 0; i < (satirSayisi * sutunSayisi) / 5; i++)
-            {
-                int x = rnd.Next(0, satirSayisi);
-                int y = rnd.Next(0, sutunSayisi);
-
-
-                if ((x == 0 && y == 0) || (x == satirSayisi - 1 && y == 0) || (x == 0 && y == sutunSayisi - 1) || (x == satirSayisi - 1 && y == sutunSayisi - 1))
-                {
-                    x = rnd.Next(0, satirSayisi);
-                    y = rnd.Next(0, sutunSayisi);
-
-                }
-
-                altin.altinKonumSatir = x;
-                altin.altinKonumSutun = y;
-
-                altinliste.Add(altin);
-
-                tableLayoutPanel1.Controls.Add(new PictureBox { Name = "pct" + i, Visible = true, Dock = DockStyle.Fill, BackColor = System.Drawing.Color.Yellow }, y, x);
-
-
-            }
-
-
-
+            Altin altin = new Altin();
+            altinListe = altin.altinYerleri(satirSayisi, sutunSayisi, tableLayoutPanel1);
+            var gizliAltin = altin.gizliAltin(tableLayoutPanel1);
 
 
         }
