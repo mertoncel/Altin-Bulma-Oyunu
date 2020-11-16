@@ -39,10 +39,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txt_aPuani = new System.Windows.Forms.Label();
-            this.txt_bPuani = new System.Windows.Forms.Label();
-            this.txt_cPuani = new System.Windows.Forms.Label();
             this.txt_dPuani = new System.Windows.Forms.Label();
+            this.txt_cPuani = new System.Windows.Forms.Label();
+            this.txt_bPuani = new System.Windows.Forms.Label();
+            this.txt_aPuani = new System.Windows.Forms.Label();
+            this.btn_Oyna = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aOyuncusu)).BeginInit();
@@ -218,17 +219,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ALTIN SAYISI";
             // 
-            // txt_aPuani
+            // txt_dPuani
             // 
-            this.txt_aPuani.AutoSize = true;
-            this.txt_aPuani.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_aPuani.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_aPuani.Location = new System.Drawing.Point(6, 52);
-            this.txt_aPuani.Name = "txt_aPuani";
-            this.txt_aPuani.Size = new System.Drawing.Size(35, 17);
-            this.txt_aPuani.TabIndex = 2;
-            this.txt_aPuani.Text = "200";
-            this.txt_aPuani.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txt_dPuani.AutoSize = true;
+            this.txt_dPuani.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_dPuani.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txt_dPuani.Location = new System.Drawing.Point(129, 52);
+            this.txt_dPuani.Name = "txt_dPuani";
+            this.txt_dPuani.Size = new System.Drawing.Size(35, 17);
+            this.txt_dPuani.TabIndex = 2;
+            this.txt_dPuani.Text = "200";
+            // 
+            // txt_cPuani
+            // 
+            this.txt_cPuani.AutoSize = true;
+            this.txt_cPuani.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_cPuani.Location = new System.Drawing.Point(88, 52);
+            this.txt_cPuani.Name = "txt_cPuani";
+            this.txt_cPuani.Size = new System.Drawing.Size(35, 17);
+            this.txt_cPuani.TabIndex = 2;
+            this.txt_cPuani.Text = "200";
             // 
             // txt_bPuani
             // 
@@ -241,26 +251,27 @@
             this.txt_bPuani.TabIndex = 2;
             this.txt_bPuani.Text = "200";
             // 
-            // txt_cPuani
+            // txt_aPuani
             // 
-            this.txt_cPuani.AutoSize = true;
-            this.txt_cPuani.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_cPuani.Location = new System.Drawing.Point(88, 52);
-            this.txt_cPuani.Name = "txt_cPuani";
-            this.txt_cPuani.Size = new System.Drawing.Size(35, 17);
-            this.txt_cPuani.TabIndex = 2;
-            this.txt_cPuani.Text = "200";
+            this.txt_aPuani.AutoSize = true;
+            this.txt_aPuani.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txt_aPuani.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_aPuani.Location = new System.Drawing.Point(6, 52);
+            this.txt_aPuani.Name = "txt_aPuani";
+            this.txt_aPuani.Size = new System.Drawing.Size(35, 17);
+            this.txt_aPuani.TabIndex = 2;
+            this.txt_aPuani.Text = "200";
+            this.txt_aPuani.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txt_dPuani
+            // btn_Oyna
             // 
-            this.txt_dPuani.AutoSize = true;
-            this.txt_dPuani.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txt_dPuani.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txt_dPuani.Location = new System.Drawing.Point(129, 52);
-            this.txt_dPuani.Name = "txt_dPuani";
-            this.txt_dPuani.Size = new System.Drawing.Size(35, 17);
-            this.txt_dPuani.TabIndex = 2;
-            this.txt_dPuani.Text = "200";
+            this.btn_Oyna.Location = new System.Drawing.Point(246, 26);
+            this.btn_Oyna.Name = "btn_Oyna";
+            this.btn_Oyna.Size = new System.Drawing.Size(120, 55);
+            this.btn_Oyna.TabIndex = 4;
+            this.btn_Oyna.Text = "OYNA";
+            this.btn_Oyna.UseVisualStyleBackColor = true;
+            this.btn_Oyna.Click += new System.EventHandler(this.btn_Oyna_Click);
             // 
             // Oyun
             // 
@@ -268,6 +279,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(829, 720);
+            this.Controls.Add(this.btn_Oyna);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(1000, 1000);
@@ -305,5 +317,6 @@
         private System.Windows.Forms.Label txt_cPuani;
         private System.Windows.Forms.Label txt_bPuani;
         private System.Windows.Forms.Label txt_aPuani;
+        private System.Windows.Forms.Button btn_Oyna;
     }
 }

@@ -8,6 +8,8 @@ namespace WindowsFormsApp1
 {
     public interface IOyuncu
     {
+         int hamleMaliyet { get; set; }
+        int hedefBelirlemeMaliyet { get; set; }
 
     }
 }

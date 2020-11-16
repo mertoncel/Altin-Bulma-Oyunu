@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class form_menu
     {
         /// <summary>
         /// Required designer variable.
@@ -33,13 +33,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numericudSatir = new System.Windows.Forms.NumericUpDown();
             this.numericudSutun = new System.Windows.Forms.NumericUpDown();
+            this.numericudAltinYuzde = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericudSatir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericudSutun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericudAltinYuzde)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_OYNA
             // 
-            this.btn_OYNA.Location = new System.Drawing.Point(48, 87);
+            this.btn_OYNA.Location = new System.Drawing.Point(235, 25);
             this.btn_OYNA.Name = "btn_OYNA";
             this.btn_OYNA.Size = new System.Drawing.Size(181, 31);
             this.btn_OYNA.TabIndex = 2;
@@ -51,21 +54,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 23);
+            this.label1.Location = new System.Drawing.Point(7, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Satır Sayısı";
+            this.label1.Text = "Tahta Satır Sayısı";
             this.label1.UseWaitCursor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 49);
+            this.label2.Location = new System.Drawing.Point(29, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Sütun Sayısı";
+            this.label2.Text = "Altın Yüzdesi";
             this.label2.UseWaitCursor = true;
             // 
             // numericudSatir
@@ -84,6 +87,7 @@
             this.numericudSatir.Name = "numericudSatir";
             this.numericudSatir.Size = new System.Drawing.Size(120, 20);
             this.numericudSatir.TabIndex = 3;
+            this.numericudSatir.UseWaitCursor = true;
             this.numericudSatir.Value = new decimal(new int[] {
             20,
             0,
@@ -106,30 +110,67 @@
             this.numericudSutun.Name = "numericudSutun";
             this.numericudSutun.Size = new System.Drawing.Size(120, 20);
             this.numericudSutun.TabIndex = 3;
+            this.numericudSutun.UseWaitCursor = true;
             this.numericudSutun.Value = new decimal(new int[] {
             20,
             0,
             0,
             0});
             // 
-            // Form1
+            // numericudAltinYuzde
+            // 
+            this.numericudAltinYuzde.Location = new System.Drawing.Point(109, 77);
+            this.numericudAltinYuzde.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.numericudAltinYuzde.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericudAltinYuzde.Name = "numericudAltinYuzde";
+            this.numericudAltinYuzde.Size = new System.Drawing.Size(120, 20);
+            this.numericudAltinYuzde.TabIndex = 3;
+            this.numericudAltinYuzde.UseWaitCursor = true;
+            this.numericudAltinYuzde.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Tahta Sütun Sayısı";
+            this.label3.UseWaitCursor = true;
+            // 
+            // form_menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(301, 206);
+            this.ClientSize = new System.Drawing.Size(423, 324);
+            this.Controls.Add(this.numericudAltinYuzde);
             this.Controls.Add(this.numericudSutun);
             this.Controls.Add(this.numericudSatir);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_OYNA);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
+            this.Name = "form_menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Altın Toplama Oyunu - Menü";
             this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericudSatir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericudSutun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericudAltinYuzde)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +183,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericudSatir;
         private System.Windows.Forms.NumericUpDown numericudSutun;
+        private System.Windows.Forms.NumericUpDown numericudAltinYuzde;
+        private System.Windows.Forms.Label label3;
     }
 }
 

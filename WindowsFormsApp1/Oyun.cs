@@ -16,12 +16,13 @@ namespace WindowsFormsApp1
     {
         int satirSayisi = 20;
         int sutunSayisi = 20;
-        Random rnd = new Random();
+        int altinYuzdesi = 10;
+        
 
         List<Altin> altinListe;
 
 
-
+        AOyuncusu playerA;
 
 
 
@@ -31,10 +32,11 @@ namespace WindowsFormsApp1
 
         }
 
-        public Oyun(int satir, int sutun)
+        public Oyun(int satir, int sutun, int altinYuzde)
         {
             satirSayisi = satir;
             sutunSayisi = sutun;
+            altinYuzdesi = altinYuzde;
             InitializeComponent();
             InitTableLayoutPanel(tableLayoutPanel1, satirSayisi, sutunSayisi);
             MovePlayers(satirSayisi - 1, sutunSayisi - 1);
@@ -49,8 +51,10 @@ namespace WindowsFormsApp1
 
 
             Altin altin = new Altin();
-            altinListe = altin.altinYerleri(satirSayisi, sutunSayisi, tableLayoutPanel1);
+            altinListe = altin.altinYerleri(satirSayisi, sutunSayisi, altinYuzdesi, tableLayoutPanel1);
             var gizliAltin = altin.gizliAltin(tableLayoutPanel1);
+
+            playerA = new AOyuncusu();
 
 
         }
@@ -60,11 +64,11 @@ namespace WindowsFormsApp1
         //dinamik olarak değiştirilebilen tahtada oyuncuların default olan konumlarını değerlere göre değiştirir.
         private void MovePlayers(int satirsayi, int sutunsayi)
         {
-            Control playerbControl = tableLayoutPanel1.GetControlFromPosition(19, 0);
+            Control playerbControl = tableLayoutPanel1.Controls.Find("bOyuncusu", true).FirstOrDefault();
+            Control playercControl = tableLayoutPanel1.Controls.Find("cOyuncusu", true).FirstOrDefault();
+            Control playerdControl = tableLayoutPanel1.Controls.Find("dOyuncusu", true).FirstOrDefault();
             tableLayoutPanel1.SetColumn(playerbControl, sutunsayi);
-            Control playercControl = tableLayoutPanel1.GetControlFromPosition(0, 19);
             tableLayoutPanel1.SetRow(playercControl, satirsayi);
-            Control playerdControl = tableLayoutPanel1.GetControlFromPosition(19, 19);
             tableLayoutPanel1.SetRow(playerdControl, satirsayi);
             tableLayoutPanel1.SetColumn(playerdControl, sutunsayi);
 
@@ -97,6 +101,10 @@ namespace WindowsFormsApp1
 
         }
 
-   
+        private void btn_Oyna_Click(object sender, EventArgs e)
+        {
+            
+            playerA.enYakinAltin(tableLayoutPanel1, altinListe);
+        }
     }
 }

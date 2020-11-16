@@ -13,7 +13,11 @@ namespace WindowsFormsApp1
         public int altinKonumSatir { get; set; }
         public int altinKonumSutun { get; set; }
 
+        
+
         public int altinMiktar { get; set; }
+
+        public string altinPBoxAd { get; set; }
 
 
         List<Altin> altinListe;
@@ -28,14 +32,14 @@ namespace WindowsFormsApp1
 
 
         //altinların konumunu random olarak atama ve ilgili konumlara altin pictureboxu ekleme
-        public List<Altin> altinYerleri(int satirSayisi, int sutunSayisi, TableLayoutPanel tableLayoutPanel1)
+        public List<Altin> altinYerleri(int satirSayisi, int sutunSayisi, int altinYuzde,  TableLayoutPanel tableLayoutPanel1)
         {
             altinListe = new List<Altin>();
             int[] b  = { 5,10,15,20};
 
             
 
-            for (int i = 0; i < (satirSayisi * sutunSayisi) / 5; i++)
+            for (int i = 0; i < satirSayisi * sutunSayisi* altinYuzde/100; i++)
             {
                 
 
@@ -50,16 +54,18 @@ namespace WindowsFormsApp1
                 {
                     if (x == item.altinKonumSatir && y == item.altinKonumSutun)
                     {
-                        x = rnd.Next(0, satirSayisi);
-                        y = rnd.Next(0, sutunSayisi);
-                        altin.altinMiktar = altinmktr;
+                        x = rnd.Next(1, satirSayisi);
+                        y = rnd.Next(1, sutunSayisi);
+                        
 
                     }
+
                 }
 
                 altin.altinKonumSatir = x;
                 altin.altinKonumSutun = y;
                 altin.altinMiktar = altinmktr;
+                altin.altinPBoxAd = "pct_" + x + "_" + y;
 
                 altinListe.Add(altin);
 
@@ -74,8 +80,6 @@ namespace WindowsFormsApp1
 
 
             }
-
-
 
             return altinListe;
         }
@@ -101,10 +105,6 @@ namespace WindowsFormsApp1
 
             }
             
-
-
-
-
 
             return gizliAltin;
 
