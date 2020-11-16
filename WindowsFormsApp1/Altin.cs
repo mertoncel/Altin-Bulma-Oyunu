@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
 
 
         //altinların konumunu random olarak atama ve ilgili konumlara altin pictureboxu ekleme
-        public List<Altin> altinYerleri(int satirSayisi, int sutunSayisi, int altinYuzde,  TableLayoutPanel tableLayoutPanel1)
+        public List<Altin> altinYerleri(int satirSayisi, int sutunSayisi, int altinYuzde, TableLayoutPanel tableLayoutPanel1)
         {
             altinListe = new List<Altin>();
             int[] b  = { 5,10,15,20};
@@ -85,11 +85,11 @@ namespace WindowsFormsApp1
             return altinListe;
         }
 
-        public List<Altin> gizliAltin(TableLayoutPanel tableLayoutPanel)
+        public List<Altin> gizliAltin(int gizliAltinYuzde, TableLayoutPanel tableLayoutPanel)
         {
             
             // altin listesini karıştırıp içinden %10 kadar gizli altin seçme.
-            List<Altin> gizliAltin = altinListe.OrderBy(x => Guid.NewGuid()).Take(altinListe.Count / 10).ToList();
+            List<Altin> gizliAltin = altinListe.OrderBy(x => Guid.NewGuid()).Take(altinListe.Count * gizliAltinYuzde/100).ToList();
 
             //bonus listeyi düzenlemek için 
 

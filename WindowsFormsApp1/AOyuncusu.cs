@@ -18,16 +18,22 @@ namespace WindowsFormsApp1
 
         public AOyuncusu()
         {
-            hamleMaliyet = 5;
-            hedefBelirlemeMaliyet = 5;
+            
             hedefAltin = new Altin();
             hedefAltin.hedefAltinVarMi = true;
             
             
             
         }
+        public AOyuncusu(int HamleMaliyet, int HedefMaliyat)
+        {
+            hamleMaliyet = HamleMaliyet;
+            hedefBelirlemeMaliyet = HedefMaliyat;
+            hedefAltin = new Altin();
+            hedefAltin.hedefAltinVarMi = true;
+        }
 
-        public void enYakinAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste, int aPuan)
+        public void enYakinAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste, int aPuan, int adimSayisi)
         {
 
 
@@ -63,7 +69,7 @@ namespace WindowsFormsApp1
 
                 
 
-                while (tableLayoutPanel1.GetRow(aControl) != hedefAltin.altinKonumSatir && i <= 3)
+                while (tableLayoutPanel1.GetRow(aControl) != hedefAltin.altinKonumSatir && i <= adimSayisi)
                 {
                     if (tableLayoutPanel1.GetRow(aControl) <= hedefAltin.altinKonumSatir)
                     {
@@ -104,11 +110,11 @@ namespace WindowsFormsApp1
 
                 }
 
-                if (tableLayoutPanel1.GetRow(aControl) == hedefAltin.altinKonumSatir && i <= 3)
+                if (tableLayoutPanel1.GetRow(aControl) == hedefAltin.altinKonumSatir && i <= adimSayisi)
                 {
                     int aY = 1;
 
-                    while (tableLayoutPanel1.GetColumn(aControl) != hedefAltin.altinKonumSutun && i <= 3)
+                    while (tableLayoutPanel1.GetColumn(aControl) != hedefAltin.altinKonumSutun && i <= adimSayisi)
                     {
 
 

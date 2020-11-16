@@ -14,11 +14,19 @@ namespace WindowsFormsApp1
 {
     public partial class Oyun : Form
     {
-        int satirSayisi = 20;
-        int sutunSayisi = 20;
-        int altinYuzdesi = 10;
+        int satirSayisi;
+        int sutunSayisi;
+        int altinYuzdesi;
+        int gizliAltinYuzdesi;
+        int baslangicAltinSayisi;
+        int adimSayisi;
 
-        int aPuani=200;
+
+        int oyuncuHamleMaliyet;
+        int oyuncuHedefBelirlemeMaliyet;
+
+
+        
         
 
         List<Altin> altinListe;
@@ -34,14 +42,22 @@ namespace WindowsFormsApp1
 
         }
 
-        public Oyun(int satir, int sutun, int altinYuzde)
+        public Oyun(int satir, int sutun, int altinYuzde,int gizliAltinYuzde, int baslangicAltinSayi, int adimSayi, int hamleMaliyet, int hedefBelirlemeMaliyet)
         {
             satirSayisi = satir;
             sutunSayisi = sutun;
             altinYuzdesi = altinYuzde;
+            gizliAltinYuzdesi = gizliAltinYuzde;
+            baslangicAltinSayisi = baslangicAltinSayi;
+            adimSayisi = adimSayi;
+
+
             InitializeComponent();
             InitTableLayoutPanel(tableLayoutPanel1, satirSayisi, sutunSayisi);
             MovePlayers(satirSayisi - 1, sutunSayisi - 1);
+
+            oyuncuHamleMaliyet = hamleMaliyet;
+            oyuncuHedefBelirlemeMaliyet = hedefBelirlemeMaliyet;
 
 
         }
@@ -50,13 +66,18 @@ namespace WindowsFormsApp1
 
         private void Oyun_Load(object sender, EventArgs e)
         {
+            txt_aPuani.Text = baslangicAltinSayisi.ToString();
+            txt_bPuani.Text = baslangicAltinSayisi.ToString();
+            txt_cPuani.Text = baslangicAltinSayisi.ToString();
+            txt_dPuani.Text = baslangicAltinSayisi.ToString();
+
 
 
             Altin altin = new Altin();
             altinListe = altin.altinYerleri(satirSayisi, sutunSayisi, altinYuzdesi, tableLayoutPanel1);
-            var gizliAltin = altin.gizliAltin(tableLayoutPanel1);
+            var gizliAltin = altin.gizliAltin(gizliAltinYuzdesi,tableLayoutPanel1);
 
-            playerA = new AOyuncusu();
+            playerA = new AOyuncusu(oyuncuHamleMaliyet,oyuncuHedefBelirlemeMaliyet);
 
 
         }
@@ -106,9 +127,9 @@ namespace WindowsFormsApp1
         private void btn_Oyna_Click(object sender, EventArgs e)
         {
             
-            playerA.enYakinAltin(tableLayoutPanel1, altinListe,aPuani);
-            aPuani = playerA.harcananAltin;
-            txt_aPuani.Text = aPuani.ToString();
+            playerA.enYakinAltin(tableLayoutPanel1, altinListe, baslangicAltinSayisi,adimSayisi);
+            baslangicAltinSayisi = playerA.harcananAltin;
+            txt_aPuani.Text = baslangicAltinSayisi.ToString();
         }
     }
 }
