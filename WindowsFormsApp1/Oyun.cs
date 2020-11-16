@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         int satirSayisi = 20;
         int sutunSayisi = 20;
         int altinYuzdesi = 10;
+
+        int aPuani=200;
         
 
         List<Altin> altinListe;
@@ -104,7 +106,9 @@ namespace WindowsFormsApp1
         private void btn_Oyna_Click(object sender, EventArgs e)
         {
             
-            playerA.enYakinAltin(tableLayoutPanel1, altinListe);
+            playerA.enYakinAltin(tableLayoutPanel1, altinListe,aPuani);
+            aPuani = playerA.harcananAltin;
+            txt_aPuani.Text = aPuani.ToString();
         }
     }
 }

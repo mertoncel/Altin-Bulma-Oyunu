@@ -12,19 +12,30 @@ namespace WindowsFormsApp1
         public int hamleMaliyet { get; set; }
         public int hedefBelirlemeMaliyet { get; set; }
 
+        public int harcananAltin { get; set; }
+
+        public Altin hedefAltin { get; set; }
+
         public AOyuncusu()
         {
             hamleMaliyet = 5;
-            hedefBelirlemeMaliyet = 10;
+            hedefBelirlemeMaliyet = 5;
+            hedefAltin = new Altin();
+            hedefAltin.hedefAltinVarMi = true;
+            
+            
+            
         }
 
-        public void enYakinAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste)
+        public void enYakinAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste, int aPuan)
         {
 
 
             Control aControl = tableLayoutPanel1.Controls.Find("aOyuncusu", true).FirstOrDefault();
 
             PictureBox aPCBox = aControl as PictureBox;
+
+            
 
             int aOyuncusuX = tableLayoutPanel1.GetRow(aControl);
             int aOyuncusuY = tableLayoutPanel1.GetColumn(aControl);
@@ -37,40 +48,52 @@ namespace WindowsFormsApp1
 
             Control c1 = tableLayoutPanel1.GetControlFromPosition(enYakinAltin.altinKonumSutun, enYakinAltin.altinKonumSatir);
             PictureBox pc = c1 as PictureBox;
-            int altinX = tableLayoutPanel1.GetRow(c1);
-            int altinY = tableLayoutPanel1.GetColumn(c1);
+            hedefAltin.altinKonumSatir = tableLayoutPanel1.GetRow(c1);
+            hedefAltin.altinKonumSutun = tableLayoutPanel1.GetColumn(c1);
+
+            if (hedefAltin.hedefAltinVarMi == true)
+                aPuan = aPuan - hedefBelirlemeMaliyet;
+            hedefAltin.hedefAltinVarMi = false;
 
 
 
-
-
-
-            if (tableLayoutPanel1.GetRow(aControl) != altinX || tableLayoutPanel1.GetColumn(aControl) != altinY)
+            if (tableLayoutPanel1.GetRow(aControl) != hedefAltin.altinKonumSatir || tableLayoutPanel1.GetColumn(aControl) != hedefAltin.altinKonumSutun)
             {
                 int i = 1;
 
+                
 
-                while (tableLayoutPanel1.GetRow(aControl) != altinX && i <= 3)
+                while (tableLayoutPanel1.GetRow(aControl) != hedefAltin.altinKonumSatir && i <= 3)
                 {
-                    if (tableLayoutPanel1.GetRow(aControl) <= altinX)
+                    if (tableLayoutPanel1.GetRow(aControl) <= hedefAltin.altinKonumSatir)
                     {
-                        if (aOyuncusuX + i == altinX && aOyuncusuY == altinY)
+                        if (aOyuncusuX + i == hedefAltin.altinKonumSatir && aOyuncusuY == hedefAltin.altinKonumSutun)
                         {
+                            aPuan = aPuan + enYakinAltin.altinMiktar;
                             tableLayoutPanel1.Controls.Remove(pc);
                             altinliste.Remove(enYakinAltin);
+                            hedefAltin.hedefAltinVarMi = true;
+
+
+
                         }
                         tableLayoutPanel1.SetRow(aControl, aOyuncusuX + i);
+                        
                     }
 
                     else
                     {
-                        if (aOyuncusuX - i == altinX && aOyuncusuY == altinY)
+                        if (aOyuncusuX - i == hedefAltin.altinKonumSatir && aOyuncusuY == hedefAltin.altinKonumSutun)
                         {
+                            aPuan = aPuan + enYakinAltin.altinMiktar;
                             tableLayoutPanel1.Controls.Remove(pc);
                             altinliste.Remove(enYakinAltin);
+                            hedefAltin.hedefAltinVarMi = true;
+
                         }
 
                         tableLayoutPanel1.SetRow(aControl, aOyuncusuX - i);
+                        
                     }
 
 
@@ -81,21 +104,24 @@ namespace WindowsFormsApp1
 
                 }
 
-                if (tableLayoutPanel1.GetRow(aControl) == altinX && i <= 3)
+                if (tableLayoutPanel1.GetRow(aControl) == hedefAltin.altinKonumSatir && i <= 3)
                 {
                     int aY = 1;
 
-                    while (tableLayoutPanel1.GetColumn(aControl) != altinY && i <= 3)
+                    while (tableLayoutPanel1.GetColumn(aControl) != hedefAltin.altinKonumSutun && i <= 3)
                     {
 
 
-                        if (aOyuncusuY <= altinY)
+                        if (aOyuncusuY <= hedefAltin.altinKonumSutun)
                         {
 
-                            if (aOyuncusuY + aY == altinY)
+                            if (aOyuncusuY + aY == hedefAltin.altinKonumSutun)
                             {
+                                aPuan = aPuan + enYakinAltin.altinMiktar;
                                 tableLayoutPanel1.Controls.Remove(pc);
                                 altinliste.Remove(enYakinAltin);
+                                hedefAltin.hedefAltinVarMi = true;
+
                             }
                             tableLayoutPanel1.SetColumn(aControl, aOyuncusuY + aY);
                         }
@@ -103,10 +129,13 @@ namespace WindowsFormsApp1
                         else
                         {
 
-                            if (aOyuncusuY - aY == altinY)
+                            if (aOyuncusuY - aY == hedefAltin.altinKonumSutun)
                             {
+                                aPuan = aPuan + enYakinAltin.altinMiktar;
                                 tableLayoutPanel1.Controls.Remove(pc);
                                 altinliste.Remove(enYakinAltin);
+                                hedefAltin.hedefAltinVarMi = true;
+
                             }
                             tableLayoutPanel1.SetColumn(aControl, aOyuncusuY - aY);
                         }
@@ -118,6 +147,9 @@ namespace WindowsFormsApp1
 
 
                 }
+
+
+                harcananAltin= aPuan - hamleMaliyet * (i-1);
 
 
 

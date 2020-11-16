@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         public int altinMiktar { get; set; }
 
         public string altinPBoxAd { get; set; }
+        public bool hedefAltinVarMi { get; set; }
 
 
         List<Altin> altinListe;
