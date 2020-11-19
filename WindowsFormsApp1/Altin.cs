@@ -13,8 +13,6 @@ namespace WindowsFormsApp1
         public int altinKonumSatir { get; set; }
         public int altinKonumSutun { get; set; }
 
-        
-
         public int altinMiktar { get; set; }
 
         public string altinPBoxAd { get; set; }
@@ -24,9 +22,10 @@ namespace WindowsFormsApp1
         List<Altin> altinListe;
         Random rnd = new Random();
 
+
         public Altin()
         {
-
+            
         }
 
 
@@ -44,21 +43,19 @@ namespace WindowsFormsApp1
             {
                 
 
-                int x = rnd.Next(1, satirSayisi);
-                int y = rnd.Next(1, sutunSayisi);
+                int x = rnd.Next(0, satirSayisi);
+                int y = rnd.Next(0, sutunSayisi);
                 int altinmktr = Convert.ToInt32(b.OrderBy(t => Guid.NewGuid()).First());
 
-                Altin altin = new Altin();
-                
 
+                Altin altin = new Altin();
                 foreach(Altin item in altinListe)
                 {
-                    if (x == item.altinKonumSatir && y == item.altinKonumSutun)
+                    // random üretilen altnlar daha önceden eklendiyse ya da oyuncuların bulunduğu konuma denk geliyorsa yeniden değer üret
+                    if ((x == item.altinKonumSatir && y == item.altinKonumSutun) || (x == 0 && y == 0) || (x == 0 && y == sutunSayisi-1) || (x == satirSayisi-1 && y == 0) || (x == satirSayisi-1 && y == sutunSayisi-1))
                     {
-                        x = rnd.Next(1, satirSayisi);
-                        y = rnd.Next(1, sutunSayisi);
-                        
-
+                        x = rnd.Next(0, satirSayisi);
+                        y = rnd.Next(0, sutunSayisi);
                     }
 
                 }
@@ -91,18 +88,15 @@ namespace WindowsFormsApp1
             // altin listesini karıştırıp içinden %10 kadar gizli altin seçme.
             List<Altin> gizliAltin = altinListe.OrderBy(x => Guid.NewGuid()).Take(altinListe.Count * gizliAltinYuzde/100).ToList();
 
-            //bonus listeyi düzenlemek için 
-
-
-
             Control c = new Control();
 
             foreach (Altin item in gizliAltin)
             {
                 c = tableLayoutPanel.GetControlFromPosition(item.altinKonumSutun, item.altinKonumSatir);
                 PictureBox pc = (PictureBox)c;
-                //pc.Visible = false;
+                pc.Visible = false;
                 pc.BackColor = Color.Red;
+                altinListe.Remove(item);
 
             }
             

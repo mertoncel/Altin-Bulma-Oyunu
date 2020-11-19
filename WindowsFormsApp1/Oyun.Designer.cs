@@ -43,7 +43,10 @@
             this.txt_cPuani = new System.Windows.Forms.Label();
             this.txt_bPuani = new System.Windows.Forms.Label();
             this.txt_aPuani = new System.Windows.Forms.Label();
-            this.btn_Oyna = new System.Windows.Forms.Button();
+            this.btn_A_Oyna = new System.Windows.Forms.Button();
+            this.btn_B_Oyna = new System.Windows.Forms.Button();
+            this.btn_C_Oyna = new System.Windows.Forms.Button();
+            this.btn_D_Oyna = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aOyuncusu)).BeginInit();
@@ -263,15 +266,45 @@
             this.txt_aPuani.Text = "200";
             this.txt_aPuani.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_Oyna
+            // btn_A_Oyna
             // 
-            this.btn_Oyna.Location = new System.Drawing.Point(246, 26);
-            this.btn_Oyna.Name = "btn_Oyna";
-            this.btn_Oyna.Size = new System.Drawing.Size(120, 55);
-            this.btn_Oyna.TabIndex = 4;
-            this.btn_Oyna.Text = "OYNA";
-            this.btn_Oyna.UseVisualStyleBackColor = true;
-            this.btn_Oyna.Click += new System.EventHandler(this.btn_Oyna_Click);
+            this.btn_A_Oyna.Location = new System.Drawing.Point(246, 26);
+            this.btn_A_Oyna.Name = "btn_A_Oyna";
+            this.btn_A_Oyna.Size = new System.Drawing.Size(120, 55);
+            this.btn_A_Oyna.TabIndex = 4;
+            this.btn_A_Oyna.Text = "A OYNA";
+            this.btn_A_Oyna.UseVisualStyleBackColor = true;
+            this.btn_A_Oyna.Click += new System.EventHandler(this.btn_A_Oyna_Click);
+            // 
+            // btn_B_Oyna
+            // 
+            this.btn_B_Oyna.Location = new System.Drawing.Point(385, 26);
+            this.btn_B_Oyna.Name = "btn_B_Oyna";
+            this.btn_B_Oyna.Size = new System.Drawing.Size(120, 55);
+            this.btn_B_Oyna.TabIndex = 4;
+            this.btn_B_Oyna.Text = "B OYNA";
+            this.btn_B_Oyna.UseVisualStyleBackColor = true;
+            this.btn_B_Oyna.Click += new System.EventHandler(this.btn_B_Oyna_Click);
+            // 
+            // btn_C_Oyna
+            // 
+            this.btn_C_Oyna.Location = new System.Drawing.Point(523, 26);
+            this.btn_C_Oyna.Name = "btn_C_Oyna";
+            this.btn_C_Oyna.Size = new System.Drawing.Size(120, 55);
+            this.btn_C_Oyna.TabIndex = 4;
+            this.btn_C_Oyna.Text = "C OYNA";
+            this.btn_C_Oyna.UseVisualStyleBackColor = true;
+            this.btn_C_Oyna.Click += new System.EventHandler(this.btn_C_Oyna_Click);
+            // 
+            // btn_D_Oyna
+            // 
+            this.btn_D_Oyna.Location = new System.Drawing.Point(663, 26);
+            this.btn_D_Oyna.Name = "btn_D_Oyna";
+            this.btn_D_Oyna.Size = new System.Drawing.Size(120, 55);
+            this.btn_D_Oyna.TabIndex = 4;
+            this.btn_D_Oyna.Text = "D OYNA";
+            this.btn_D_Oyna.UseVisualStyleBackColor = true;
+            this.btn_D_Oyna.Click += new System.EventHandler(this.btn_D_Oyna_Click);
             // 
             // Oyun
             // 
@@ -279,7 +312,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(829, 720);
-            this.Controls.Add(this.btn_Oyna);
+            this.Controls.Add(this.btn_D_Oyna);
+            this.Controls.Add(this.btn_C_Oyna);
+            this.Controls.Add(this.btn_B_Oyna);
+            this.Controls.Add(this.btn_A_Oyna);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(1000, 1000);
@@ -317,6 +353,9 @@
         private System.Windows.Forms.Label txt_cPuani;
         private System.Windows.Forms.Label txt_bPuani;
         private System.Windows.Forms.Label txt_aPuani;
-        private System.Windows.Forms.Button btn_Oyna;
+        private System.Windows.Forms.Button btn_A_Oyna;
+        private System.Windows.Forms.Button btn_B_Oyna;
+        private System.Windows.Forms.Button btn_C_Oyna;
+        private System.Windows.Forms.Button btn_D_Oyna;
     }
 }

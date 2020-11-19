@@ -48,6 +48,9 @@
   <ItemGroup>
     <Compile Include="Altin.cs" />
     <Compile Include="AOyuncusu.cs" />
+    <Compile Include="BOyuncusu.cs" />
+    <Compile Include="COyuncusu.cs" />
+    <Compile Include="DOyuncusu.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +64,12 @@
     <Compile Include="Oyun.Designer.cs">
       <DependentUpon>Oyun.cs</DependentUpon>
     </Compile>
+    <Compile Include="OzetTablo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OzetTablo.Designer.cs">
+      <DependentUpon>OzetTablo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -68,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Oyun.resx">
       <DependentUpon>Oyun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OzetTablo.resx">
+      <DependentUpon>OzetTablo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +90,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\AOyuncusu.datasource" />
+    <None Include="Properties\DataSources\BOyuncusu.datasource" />
+    <None Include="Properties\DataSources\COyuncusu.datasource" />
+    <None Include="Properties\DataSources\DOyuncusu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

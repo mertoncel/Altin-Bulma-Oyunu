@@ -35,10 +35,16 @@ namespace WindowsFormsApp1
             int baslangicAltinSayi = Convert.ToInt32(nud_AltinSayilari.Text);
             int a_Hamle_Maliyet = Convert.ToInt32(nud_A_HamleMaliyet.Text);
             int a_HedefBelirleme_Maliyet = Convert.ToInt32(nud_A_HedefBelirlemeMaliyet.Text);
+            int b_Hamle_Maliyet = Convert.ToInt32(nud_B_HamleMaliyet.Text);
+            int b_HedefBelirleme_Maliyet = Convert.ToInt32(nud_B_HedefBelirlemeMaliyet.Text);
+            int c_Hamle_Maliyet = Convert.ToInt32(nud_C_HamleMaliyet.Text);
+            int c_HedefBelirleme_Maliyet = Convert.ToInt32(nud_C_HedefBelirlemeMaliyet.Text);
+            int d_Hamle_Maliyet = Convert.ToInt32(nud_D_HamleMaliyet.Text);
+            int d_HedefBelirleme_Maliyet = Convert.ToInt32(nud_D_HedefBelirlemeMaliyet.Text);
 
 
 
-            Oyun oyun = new Oyun(satirSayisi, sutunSayisi, altinYuzdesi, gizliAltinYuzdesi, baslangicAltinSayi, hamleSayisi,  a_Hamle_Maliyet, a_HedefBelirleme_Maliyet);
+            Oyun oyun = new Oyun(satirSayisi, sutunSayisi, altinYuzdesi, gizliAltinYuzdesi, baslangicAltinSayi, hamleSayisi,  a_Hamle_Maliyet, a_HedefBelirleme_Maliyet, b_Hamle_Maliyet, b_HedefBelirleme_Maliyet, c_Hamle_Maliyet, c_HedefBelirleme_Maliyet, d_Hamle_Maliyet, d_HedefBelirleme_Maliyet);
             oyun.Show();
 
 
