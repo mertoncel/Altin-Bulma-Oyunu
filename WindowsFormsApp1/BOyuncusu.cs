@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
             hamleMaliyet = HamleMaliyet;
             hedefBelirlemeMaliyet = HedefMaliyat;
             hedefAltin = new Altin();
-            hedefAltin.hedefAltinVarMi = true;
+            hedefAltin.hedefAltinVarMi = false;
         }
 
         public void enKarliAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste, List<Altin> gizlialtinliste, int bPuan, int adimSayisi)
@@ -48,9 +48,9 @@ namespace WindowsFormsApp1
             hedefAltin.altinKonumSutun = tableLayoutPanel1.GetColumn(c1);
 
             //oyuncu hedef belirlediğinde altın kaybeder
-            if (hedefAltin.hedefAltinVarMi == true)
+            if (hedefAltin.hedefAltinVarMi == false)
                 bPuan = bPuan - hedefBelirlemeMaliyet;
-            hedefAltin.hedefAltinVarMi = false;
+            hedefAltin.hedefAltinVarMi = true;
 
 
 
@@ -69,7 +69,7 @@ namespace WindowsFormsApp1
                         bPuan = bPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -97,7 +97,7 @@ namespace WindowsFormsApp1
                         bPuan = bPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -133,7 +133,7 @@ namespace WindowsFormsApp1
                         bPuan = bPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -163,7 +163,7 @@ namespace WindowsFormsApp1
                         bPuan = bPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {

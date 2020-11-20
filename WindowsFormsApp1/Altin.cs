@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
 
         List<Altin> altinListe;
         Random rnd = new Random();
+        
 
 
         public Altin()
@@ -43,8 +44,8 @@ namespace WindowsFormsApp1
             {
                 
 
-                int x = rnd.Next(0, satirSayisi);
-                int y = rnd.Next(0, sutunSayisi);
+                int x = rnd.Next()%satirSayisi;
+                int y = rnd.Next()%sutunSayisi;
                 int altinmktr = Convert.ToInt32(b.OrderBy(t => Guid.NewGuid()).First());
 
 
@@ -53,9 +54,9 @@ namespace WindowsFormsApp1
                 {
                     // random üretilen altnlar daha önceden eklendiyse ya da oyuncuların bulunduğu konuma denk geliyorsa yeniden değer üret
                     if ((x == item.altinKonumSatir && y == item.altinKonumSutun) || (x == 0 && y == 0) || (x == 0 && y == sutunSayisi-1) || (x == satirSayisi-1 && y == 0) || (x == satirSayisi-1 && y == sutunSayisi-1))
-                    {
-                        x = rnd.Next(0, satirSayisi);
-                        y = rnd.Next(0, sutunSayisi);
+                    {  
+                        x = rnd.Next()%satirSayisi;
+                        y = rnd.Next()%sutunSayisi;
                     }
 
                 }

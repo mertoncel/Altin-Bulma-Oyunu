@@ -25,19 +25,21 @@ namespace WindowsFormsApp1
             hamleMaliyet = HamleMaliyet;
             hedefBelirlemeMaliyet = HedefMaliyat;
             hedefAltin = new Altin();
-            hedefAltin.hedefAltinVarMi = true;
+            hedefAltin.hedefAltinVarMi = false;
         }
 
-        public void enKarliAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste, List<Altin> gizlialtinliste, int dPuan, int adimSayisi)
+        public void enKarliAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste, List<Altin> gizlialtinliste, int dPuan, int adimSayisi, AOyuncusu aOyuncusu, BOyuncusu bOyuncusu, COyuncusu cOyuncusu)
         {
 
 
             Control dControl = tableLayoutPanel1.Controls.Find("dOyuncusu", true).FirstOrDefault();
             PictureBox dPCBox = dControl as PictureBox;
+            
 
             int dOyuncusuX = tableLayoutPanel1.GetRow(dControl);
             int dOyuncusuY = tableLayoutPanel1.GetColumn(dControl);
 
+            
             var enYakinAltin = altinliste.OrderByDescending(x => x.altinMiktar - (Math.Abs(x.altinKonumSatir - dOyuncusuX) + Math.Abs(+x.altinKonumSutun - dOyuncusuY)) * hamleMaliyet - hedefBelirlemeMaliyet).FirstOrDefault();
 
 
@@ -47,10 +49,45 @@ namespace WindowsFormsApp1
             hedefAltin.altinKonumSatir = tableLayoutPanel1.GetRow(c1);
             hedefAltin.altinKonumSutun = tableLayoutPanel1.GetColumn(c1);
 
+
+            #region Önceden Sezme için a,b ve c oyuncularıyla kontrol gerçekleştirme
+
+            Control aControl = tableLayoutPanel1.Controls.Find("aOyuncusu", true).FirstOrDefault();
+            Control bControl = tableLayoutPanel1.Controls.Find("bOyuncusu", true).FirstOrDefault();
+            Control cControl = tableLayoutPanel1.Controls.Find("cOyuncusu", true).FirstOrDefault();
+
+            int ayakinlik = Math.Abs(tableLayoutPanel1.GetRow(aControl) - hedefAltin.altinKonumSatir) + Math.Abs(tableLayoutPanel1.GetColumn(aControl) - hedefAltin.altinKonumSutun);
+            int byakinlik = Math.Abs(tableLayoutPanel1.GetRow(bControl) - hedefAltin.altinKonumSatir) + Math.Abs(tableLayoutPanel1.GetColumn(bControl) - hedefAltin.altinKonumSutun);
+            int cyakinlik = Math.Abs(tableLayoutPanel1.GetRow(cControl) - hedefAltin.altinKonumSatir) + Math.Abs(tableLayoutPanel1.GetColumn(cControl) - hedefAltin.altinKonumSutun);
+            int dyakinlik = Math.Abs(tableLayoutPanel1.GetRow(dControl) - hedefAltin.altinKonumSatir) + Math.Abs(tableLayoutPanel1.GetColumn(dControl) - hedefAltin.altinKonumSutun);
+
+            bool aHedefAltinaMiGidiyor = aOyuncusu.hedefAltin.altinKonumSatir == hedefAltin.altinKonumSatir && aOyuncusu.hedefAltin.altinKonumSutun == hedefAltin.altinKonumSutun ? true : false;
+            bool bHedefAltinaMiGidiyor = bOyuncusu.hedefAltin.altinKonumSatir == hedefAltin.altinKonumSatir && bOyuncusu.hedefAltin.altinKonumSutun == hedefAltin.altinKonumSutun ? true : false;
+            bool cHedefAltinaMiGidiyor = cOyuncusu.hedefAltin.altinKonumSatir == hedefAltin.altinKonumSatir && cOyuncusu.hedefAltin.altinKonumSutun == hedefAltin.altinKonumSutun ? true : false;
+            
+
+            if ((aHedefAltinaMiGidiyor.Equals(true) && ayakinlik<dyakinlik) || (bHedefAltinaMiGidiyor.Equals(true) && byakinlik < dyakinlik) || (cHedefAltinaMiGidiyor.Equals(true) && cyakinlik < dyakinlik))
+            {
+                enYakinAltin = altinliste.OrderByDescending(x => x.altinMiktar - (Math.Abs(x.altinKonumSatir - dOyuncusuX) + Math.Abs(+x.altinKonumSutun - dOyuncusuY)) * hamleMaliyet - hedefBelirlemeMaliyet).ElementAt(1);
+
+
+                c1 = tableLayoutPanel1.GetControlFromPosition(enYakinAltin.altinKonumSutun, enYakinAltin.altinKonumSatir);
+                pc = c1 as PictureBox;
+
+                hedefAltin.altinKonumSatir = tableLayoutPanel1.GetRow(c1);
+                hedefAltin.altinKonumSutun = tableLayoutPanel1.GetColumn(c1);
+            }
+                
+
+            #endregion
+
+
             //oyuncu hedef belirlediğinde altın kaybeder
-            if (hedefAltin.hedefAltinVarMi == true)
+            if (hedefAltin.hedefAltinVarMi == false)
                 dPuan = dPuan - hedefBelirlemeMaliyet;
-            hedefAltin.hedefAltinVarMi = false;
+            hedefAltin.hedefAltinVarMi = true;
+
+
 
 
 
@@ -69,7 +106,7 @@ namespace WindowsFormsApp1
                         dPuan = dPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -97,7 +134,7 @@ namespace WindowsFormsApp1
                         dPuan = dPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -133,7 +170,7 @@ namespace WindowsFormsApp1
                         dPuan = dPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -163,7 +200,7 @@ namespace WindowsFormsApp1
                         dPuan = dPuan + enYakinAltin.altinMiktar;
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
-                        hedefAltin.hedefAltinVarMi = true;
+                        hedefAltin.hedefAltinVarMi = false;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {

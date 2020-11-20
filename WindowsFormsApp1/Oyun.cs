@@ -167,6 +167,7 @@ namespace WindowsFormsApp1
                     playerA.enYakinAltin(tableLayoutPanel1, altinListe, gizliAltin, AltinSayisiA, adimSayisi);
                     AltinSayisiA = playerA.harcananAltin;
                     txt_aPuani.Text = AltinSayisiA.ToString();
+                    
                 }
                 else
                 {
@@ -231,7 +232,7 @@ namespace WindowsFormsApp1
             {
                 if (AltinSayisiD > 0)
                 {
-                    playerD.enKarliAltin(tableLayoutPanel1, altinListe, gizliAltin, AltinSayisiD, adimSayisi);
+                    playerD.enKarliAltin(tableLayoutPanel1, altinListe, gizliAltin, AltinSayisiD, adimSayisi,playerA,playerB,playerC);
                     AltinSayisiD = playerD.harcananAltin;
                     txt_dPuani.Text = AltinSayisiD.ToString();
                 }
