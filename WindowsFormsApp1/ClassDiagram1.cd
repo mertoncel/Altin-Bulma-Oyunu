@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WindowsFormsApp1.Altin">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEACAAAIQAAAAEAAAAACAAAAAAAAEAAAQAAAAAAAg=</HashCode>
+      <FileName>Altin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormsApp1.AOyuncusu" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAACAAAAAAQEQAAgAIAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AOyuncusu.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WindowsFormsApp1.BOyuncusu" BaseTypeListCollapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABCACAAAAAAQEQAAgAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BOyuncusu.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WindowsFormsApp1.COyuncusu" BaseTypeListCollapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABCACAAAAAAQEQAAgAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>COyuncusu.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WindowsFormsApp1.DOyuncusu" BaseTypeListCollapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABCACAAAAAAQEQAAgAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DOyuncusu.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.677" Collapsed="true" />
+  </Class>
+  <Class Name="WindowsFormsApp1.Oyun">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAICwASKCAApACBCmFAAEKkAQM4AAgAKUAIQAC6HA=</HashCode>
+      <FileName>Oyun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="WindowsFormsApp1.IOyuncu" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAABAACAAAAAAAEQAAgAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IOyuncu.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

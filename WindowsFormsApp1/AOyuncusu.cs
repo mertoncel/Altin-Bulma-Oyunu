@@ -56,7 +56,7 @@ namespace WindowsFormsApp1
             hedefAltin.altinKonumSutun = tableLayoutPanel1.GetColumn(c1);
 
             //oyuncu hedef belirlediğinde altın kaybeder
-            if (hedefAltin.hedefAltinVarMi == false)
+            if (hedefAltin.hedefAltinVarMi)
             {
                 aPuan = aPuan - hedefBelirlemeMaliyet;
                 hedefAltin.hedefAltinVarMi = true;

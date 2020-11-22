@@ -81,6 +81,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\AOyuncusu.datasource" />
     <None Include="Properties\DataSources\BOyuncusu.datasource" />
     <None Include="Properties\DataSources\COyuncusu.datasource" />
