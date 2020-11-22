@@ -10,6 +10,14 @@ namespace WindowsFormsApp1
     {
          int hamleMaliyet { get; set; }
         int hedefBelirlemeMaliyet { get; set; }
+        
+        int kasadakiAltinMiktari { get; set; }
+        int toplamAdim { get; set; }
+        int harcananAltinMiktari { get; set; }
+        int toplananAltin { get; set; }
+
+        List<string> adimlar { get; set; }
+
 
     }
 }

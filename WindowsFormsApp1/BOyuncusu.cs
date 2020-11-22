@@ -12,9 +12,13 @@ namespace WindowsFormsApp1
         public int hamleMaliyet { get; set; }
         public int hedefBelirlemeMaliyet { get; set; }
 
-        public int harcananAltin { get; set; }
+        public int kasadakiAltinMiktari { get; set; }
 
+        public int toplamAdim { get; set; }
+        public int harcananAltinMiktari { get; set; }
+        public int toplananAltin { get; set; }
         public Altin hedefAltin { get; set; }
+        public List<string> adimlar { get; set; }
 
         public BOyuncusu()
         {
@@ -24,8 +28,12 @@ namespace WindowsFormsApp1
         {
             hamleMaliyet = HamleMaliyet;
             hedefBelirlemeMaliyet = HedefMaliyat;
+            toplamAdim = 0;
+            harcananAltinMiktari = 0;
+            toplananAltin = 0;
             hedefAltin = new Altin();
             hedefAltin.hedefAltinVarMi = false;
+            adimlar = new List<string>();
         }
 
         public void enKarliAltin(TableLayoutPanel tableLayoutPanel1, List<Altin> altinliste, List<Altin> gizlialtinliste, int bPuan, int adimSayisi)
@@ -49,8 +57,12 @@ namespace WindowsFormsApp1
 
             //oyuncu hedef belirlediğinde altın kaybeder
             if (hedefAltin.hedefAltinVarMi == false)
+            {
                 bPuan = bPuan - hedefBelirlemeMaliyet;
-            hedefAltin.hedefAltinVarMi = true;
+                hedefAltin.hedefAltinVarMi = true;
+                harcananAltinMiktari += hedefBelirlemeMaliyet;
+            }
+                
 
 
 
@@ -70,6 +82,7 @@ namespace WindowsFormsApp1
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
                         hedefAltin.hedefAltinVarMi = false;
+                        toplananAltin++;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -85,8 +98,15 @@ namespace WindowsFormsApp1
                         }
 
                     }
-                    bPuan -= hamleMaliyet;
-                    tableLayoutPanel1.SetRow(bControl, bOyuncusuX + bX);
+                    if(bPuan>hamleMaliyet)
+                    {
+                        bPuan -= hamleMaliyet;
+                        harcananAltinMiktari += hamleMaliyet;
+                        tableLayoutPanel1.SetRow(bControl, bOyuncusuX + bX);
+                        adimlar.Add((bOyuncusuX + bX) + " " + bOyuncusuY);
+
+                    }
+                    
 
                 }
 
@@ -98,6 +118,7 @@ namespace WindowsFormsApp1
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
                         hedefAltin.hedefAltinVarMi = false;
+                        toplananAltin++;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -113,10 +134,17 @@ namespace WindowsFormsApp1
                         }
 
                     }
-                    bPuan -= hamleMaliyet;
-                    tableLayoutPanel1.SetRow(bControl, bOyuncusuX - bX);
+                    if(bPuan>hamleMaliyet)
+                    {
+                        bPuan -= hamleMaliyet;
+                        harcananAltinMiktari += hamleMaliyet;
+                        tableLayoutPanel1.SetRow(bControl, bOyuncusuX - bX);
+                        adimlar.Add((bOyuncusuX - bX) + " " + bOyuncusuY);
+                    }
+                    
 
                 }
+                toplamAdim++;
                 bX++;
                 i++;
             }
@@ -134,6 +162,7 @@ namespace WindowsFormsApp1
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
                         hedefAltin.hedefAltinVarMi = false;
+                        toplananAltin++;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -150,8 +179,14 @@ namespace WindowsFormsApp1
 
 
                     }
-                    bPuan -= hamleMaliyet;
-                    tableLayoutPanel1.SetColumn(bControl, bOyuncusuY + bY);
+                    if(bPuan>hamleMaliyet)
+                    {
+                        bPuan -= hamleMaliyet;
+                        harcananAltinMiktari += hamleMaliyet;
+                        tableLayoutPanel1.SetColumn(bControl, bOyuncusuY + bY);
+                        adimlar.Add(bOyuncusuX + " " + (bOyuncusuY+bY));
+                    }
+                    
 
                 }
 
@@ -164,6 +199,7 @@ namespace WindowsFormsApp1
                         tableLayoutPanel1.Controls.Remove(pc);
                         altinliste.Remove(enYakinAltin);
                         hedefAltin.hedefAltinVarMi = false;
+                        toplananAltin++;
                     }
                     foreach (Altin item in gizlialtinliste)
                     {
@@ -179,10 +215,17 @@ namespace WindowsFormsApp1
                         }
 
                     }
-                    bPuan -= hamleMaliyet;
-                    tableLayoutPanel1.SetColumn(bControl, bOyuncusuY - bY);
+                    if(bPuan>hamleMaliyet)
+                    {
+                        bPuan -= hamleMaliyet;
+                        harcananAltinMiktari += hamleMaliyet;
+                        tableLayoutPanel1.SetColumn(bControl, bOyuncusuY - bY);
+                        adimlar.Add(bOyuncusuX + " " + (bOyuncusuY - bY));
+                    }
+                   
 
                 }
+                toplamAdim++;
                 i++;
                 bY++;
             }
@@ -191,7 +234,7 @@ namespace WindowsFormsApp1
                 altinliste.Remove(enYakinAltin);
             }
 
-            harcananAltin = bPuan;
+            kasadakiAltinMiktari = bPuan;
         }
 
 
