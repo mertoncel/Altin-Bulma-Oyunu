@@ -1,4 +1,4 @@
-# Altin-Bulma-Oyunu
+# ALTIN BULMA OYUNU
 
 Oyun C# dili ile Windows Forms kullanılarak hazırlanmıştır. 
 
