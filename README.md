@@ -22,3 +22,9 @@ Diğer oyuncuların yapacağı hamleleri önceden sezme yeteneği bulunur. Diğe
 olarak diğer altın kareler içerisinden en karlı olanı seçer. Her hamle varsayılan 5, her hedef belirleme varsayılan 20 altın maliyetindedir.
 
 
+## EKRAN GÖRÜNTÜLERİ
+![alt text](https://i.imgur.com/7zMiuP4.png)
+![alt text](https://i.imgur.com/hFFBthT.png)
+![alt text](https://i.imgur.com/1jZBJhO.png)
+
+
